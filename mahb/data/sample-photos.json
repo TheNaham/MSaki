@@ -1,0 +1,102 @@
+[
+  {
+    "id": "sample-01",
+    "imageUrl": "https://picsum.photos/seed/mahb-gray/800/800",
+    "color": "gray",
+    "comment": "다시 꺼내고 싶지 않은 그날의 기억",
+    "link": null,
+    "category": 1,
+    "score": 12,
+    "year": "2014.03"
+  },
+  {
+    "id": "sample-02",
+    "imageUrl": "https://picsum.photos/seed/mahb-red/800/800",
+    "color": "red",
+    "comment": "시작도 못 해보고 접었던 일",
+    "link": null,
+    "category": 3,
+    "score": 8,
+    "year": "2016.07"
+  },
+  {
+    "id": "sample-03",
+    "imageUrl": "https://picsum.photos/seed/mahb-orange/800/800",
+    "color": "orange",
+    "comment": "망설이다 조금씩 마음이 열린 순간",
+    "link": null,
+    "category": 2,
+    "score": 28,
+    "year": "2018.02"
+  },
+  {
+    "id": "sample-04",
+    "imageUrl": "https://picsum.photos/seed/mahb-yellow/800/800",
+    "color": "yellow",
+    "comment": "할까 말까 고민만 하던 시절",
+    "link": null,
+    "category": 3,
+    "score": 35,
+    "year": "2019.11"
+  },
+  {
+    "id": "sample-05",
+    "imageUrl": "https://picsum.photos/seed/mahb-green/800/800",
+    "color": "green",
+    "comment": "처음으로 긍정적으로 바라본 그 계획",
+    "link": "https://drive.google.com/",
+    "category": 2,
+    "score": 52,
+    "year": "2020.09"
+  },
+  {
+    "id": "sample-06",
+    "imageUrl": "https://picsum.photos/seed/mahb-blue/800/800",
+    "color": "blue",
+    "comment": "드디어 첫발을 뗀 그 프로젝트",
+    "link": "https://drive.google.com/",
+    "category": 3,
+    "score": 61,
+    "year": "2021.05"
+  },
+  {
+    "id": "sample-07",
+    "imageUrl": "https://picsum.photos/seed/mahb-navy/800/800",
+    "color": "navy",
+    "comment": "힘들었지만 조금씩 성과가 보이던 날들",
+    "link": null,
+    "category": 3,
+    "score": 74,
+    "year": "2022.08"
+  },
+  {
+    "id": "sample-08",
+    "imageUrl": "https://picsum.photos/seed/mahb-purple1/800/800",
+    "color": "purple",
+    "comment": "마침내 상을 받던 자랑스러운 순간",
+    "link": "https://drive.google.com/",
+    "category": 3,
+    "score": 96,
+    "year": "2023.12"
+  },
+  {
+    "id": "sample-09",
+    "imageUrl": "https://picsum.photos/seed/mahb-purple2/800/800",
+    "color": "purple",
+    "comment": "가족 모두가 함께 웃었던 완벽한 하루",
+    "link": null,
+    "category": 1,
+    "score": 100,
+    "year": "2024.05"
+  },
+  {
+    "id": "sample-10",
+    "imageUrl": "https://picsum.photos/seed/mahb-green2/800/800",
+    "color": "green",
+    "comment": "새로운 취미를 긍정적으로 받아들인 날",
+    "link": null,
+    "category": 2,
+    "score": 58,
+    "year": "2025.02"
+  }
+]
