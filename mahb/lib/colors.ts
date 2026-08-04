@@ -46,6 +46,22 @@ export const COLOR_STAGES: Record<
   },
 };
 
+/** 무지개(빨주노초파남보) + 회색, 가장 중요한(보라) 순 → 덜 중요한(회색) 순 */
+export const COLOR_PRIORITY: ColorStage[] = [
+  "purple",
+  "navy",
+  "blue",
+  "green",
+  "yellow",
+  "orange",
+  "red",
+  "gray",
+];
+
+export function colorRank(stage: ColorStage): number {
+  return COLOR_PRIORITY.indexOf(stage);
+}
+
 const DEFAULT_STAGE: ColorStage = "yellow";
 
 /**
