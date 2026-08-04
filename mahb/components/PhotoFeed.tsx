@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Photo } from "@/lib/types";
+import { colorRank } from "@/lib/colors";
 import PolaroidCard from "./PolaroidCard";
 import SortToggle, { SortMode } from "./SortToggle";
 
@@ -13,7 +14,7 @@ export default function PhotoFeed({ photos }: { photos: Photo[] }) {
     if (mode === "year") {
       copy.sort((a, b) => a.year.localeCompare(b.year));
     } else {
-      copy.sort((a, b) => a.category - b.category);
+      copy.sort((a, b) => colorRank(a.color) - colorRank(b.color));
     }
     return copy;
   }, [photos, mode]);

@@ -1,6 +1,6 @@
 "use client";
 
-export type SortMode = "year" | "category";
+export type SortMode = "year" | "color";
 
 export default function SortToggle({
   mode,
@@ -22,14 +22,14 @@ export default function SortToggle({
         연도순
       </button>
       <button
-        onClick={() => onChange("category")}
+        onClick={() => onChange("color")}
         className={`rounded-full px-3 py-1.5 transition ${
-          mode === "category"
+          mode === "color"
             ? "bg-gray-800 text-white"
             : "text-gray-500 hover:text-gray-700"
         }`}
       >
-        카테고리순
+        색상순
       </button>
     </div>
   );
