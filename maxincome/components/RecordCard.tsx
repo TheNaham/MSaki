@@ -14,7 +14,19 @@ function formatKRW(amount: number): string {
 
 export default function RecordCard({ record }: { record: IncomeRecord }) {
   return (
-    <article className="border border-mi-line bg-white p-6">
+    <article className="relative border border-mi-line bg-white p-6">
+      {record.sourceUrl && (
+        <a
+          href={record.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="원본 보기"
+          aria-label="원본 문서 보기"
+          className="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded-sm text-[10px] text-mi-muted/60 transition hover:text-mi-navy"
+        >
+          ↗
+        </a>
+      )}
       <div className="flex items-center justify-between border-b border-mi-line pb-3 text-[10px] font-semibold tracking-[0.3em] text-mi-muted">
         <span>{CATEGORY_LABEL[record.category]}</span>
         <span>{record.period}</span>

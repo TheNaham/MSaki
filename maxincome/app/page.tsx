@@ -1,10 +1,12 @@
-import { getRecords } from "@/lib/records";
+import { getRecords, summarize } from "@/lib/records";
 import RecordFeed from "@/components/RecordFeed";
+import SummaryDashboard from "@/components/SummaryDashboard";
 
 export const revalidate = 0;
 
 export default async function Home() {
   const records = await getRecords();
+  const summary = summarize(records);
 
   return (
     <>
@@ -19,7 +21,8 @@ export default async function Home() {
           커리어 &amp; 소득 기록
         </p>
       </header>
-      <main className="mx-auto max-w-md px-4 pb-16 pt-8">
+      <main className="mx-auto max-w-6xl px-4 pb-16 pt-8 md:px-8">
+        <SummaryDashboard summary={summary} />
         <RecordFeed records={records} />
       </main>
     </>

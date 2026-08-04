@@ -20,14 +20,14 @@ function getAuth() {
   });
 }
 
-/** Records 탭 컬럼: id, company, period, role, amount, highlight, category, year */
+/** Records 탭 컬럼: id, company, period, role, amount, highlight, category, year, sourceUrl */
 export async function fetchRecords(): Promise<IncomeRecord[] | null> {
   if (!isConfigured()) return null;
 
   const sheets = google.sheets({ version: "v4", auth: getAuth() });
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: SHEET_ID,
-    range: `${RECORDS_TAB}!A2:H`,
+    range: `${RECORDS_TAB}!A2:I`,
   });
 
   const rows = res.data.values ?? [];
@@ -40,5 +40,6 @@ export async function fetchRecords(): Promise<IncomeRecord[] | null> {
     highlight: row[5] ?? "",
     category: (row[6] || "milestone") as IncomeRecord["category"],
     year: row[7] ?? "",
+    sourceUrl: row[8] || undefined,
   }));
 }
