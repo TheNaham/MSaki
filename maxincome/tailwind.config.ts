@@ -5,16 +5,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        maxincome: {
-          bg: "#F7F6F2",
-          card: "#FFFFFF",
-          line: "#E4E1D8",
-          accent: "#0F6B4C",
-          gold: "#B9924F",
+        mi: {
+          navy: "#0B1F3A",
+          navy2: "#122A4C",
+          line: "#DADFE6",
+          ink: "#0B1F3A",
+          muted: "#5B6779",
         },
       },
       fontFamily: {
         sans: ["Pretendard", "system-ui", "sans-serif"],
+        serif: ["'Noto Serif KR'", "'Playfair Display'", "serif"],
       },
     },
   },

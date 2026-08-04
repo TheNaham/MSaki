@@ -4,14 +4,27 @@
 Next.js + Vercel + Google Sheets 패턴을 사용하되, Telegram 연동은 없음 (읽기 전용,
 비공개 개인 기록이라 실시간 알림이 필요하지 않음).
 
+디자인은 네이비(#0B1F3A) + 화이트 톤에 세리프(Noto Serif KR / Playfair Display)
+서체를 사용한 격식 있는 톤으로 구성했습니다. 금액은 세전(총급여) 기준으로
+크게 표시됩니다.
+
+## 접근 제한 (비공개)
+
+- 전체 사이트가 비밀번호로 보호됩니다 (미들웨어 쿠키 인증).
+- 기본 비밀번호는 `8687`이며, Vercel 환경변수 `SITE_PASSWORD`로 재설정할 수 있습니다.
+  (재설정을 권장합니다 — 코드에 있는 기본값은 임시 편의용입니다.)
+- `robots: noindex`로 검색엔진 노출도 차단되어 있습니다.
+
 ## 현재 상태 (프로토타입)
 
-- `GOOGLE_*` 환경변수가 없으면 `data/sample-records.json`(샘플 2건)을 사용합니다.
+- `GOOGLE_*` 환경변수가 없으면 `data/sample-records.json`(BHC·달롤·글로우서울 6건)을 사용합니다.
 - 환경변수를 채우면 코드 변경 없이 실제 Google Sheets 데이터로 자동 전환됩니다.
+- 참고용 Google Sheet가 이미 생성되어 있습니다: [MaxIncome Records](https://docs.google.com/spreadsheets/d/1frEMljK_QW3y5Is6ElJBrbsEU6aHKOufaDaY7rHbb60/edit)
+  (같은 데이터를 sample-records.json과 동일하게 담고 있음. 실시간 연동하려면 아래 1번 절차대로 서비스 계정을 연결하고, 탭 이름을 `Sheet1` → `Records`로 변경하세요.)
 
 ## 1. Google Sheets 연결
 
-1. 새 Google 스프레드시트를 만들고 시트(탭) `Records`를 만듭니다.
+1. 위 시트를 그대로 쓰거나 새 스프레드시트를 만들고, 시트(탭) 이름을 `Records`로 지정합니다.
    - `Records!A1:H1` 헤더: `id, company, period, role, amount, highlight, category, year`
 2. Google Cloud Console에서 서비스 계정을 만들고 JSON 키를 발급합니다.
 3. 스프레드시트를 서비스 계정 이메일(`...@...iam.gserviceaccount.com`)에 **뷰어**로 공유합니다 (읽기 전용이라 편집 권한 불필요).

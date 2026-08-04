@@ -3,7 +3,9 @@ import RecordCard from "./RecordCard";
 
 export default function RecordFeed({ records }: { records: IncomeRecord[] }) {
   if (records.length === 0) {
-    return <p className="text-center text-sm text-gray-400">기록이 없습니다.</p>;
+    return (
+      <p className="text-center text-sm text-mi-muted">기록이 없습니다.</p>
+    );
   }
 
   return (
