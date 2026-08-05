@@ -41,6 +41,30 @@ function renderDecisionLog(): string {
     .join("")}</ul>`;
 }
 
+const REF_LINKS: Record<number, string> = {
+  1: "https://www.theguru.co.kr/news/article.html?no=104253",
+  2: "https://cbmpress.com/bbs/board.php?bo_table=tnews&wr_id=3506",
+  3: "https://www.hankyung.com/economy/article/2021092314251",
+  4: "https://namu.wiki/w/%ED%8C%8C%EB%A6%AC%EB%B0%94%EA%B2%8C%EB%9C%A8",
+  5: "https://www.hankyung.com/article/202603238928P",
+  6: "https://biz.heraldcorp.com/article/10828617",
+  7: "https://news.bizwatch.co.kr/article/consumer/2023/10/23/0017",
+  9: "https://news.nate.com/view/20241009n18639",
+  10: "https://www.spcmagazine.com/spc%EA%B7%B8%EB%A3%B9-%ED%8C%8C%EB%A6%AC%EB%B0%94%EA%B2%8C%EB%9C%A8-%ED%95%B4%EC%99%B8-11%EB%B2%88%EC%A7%B8-%EC%A7%84%EC%B6%9C%EA%B5%AD-%ED%95%84%EB%A6%AC%ED%95%80-1%ED%98%B8/",
+};
+
+const CIRCLED = ["", "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩"];
+
+function ref(n: number): string {
+  const url = REF_LINKS[n];
+  if (!url) return `<span class="ref">${CIRCLED[n]}</span>`;
+  return `<a class="ref" href="${url}" target="_blank" rel="noopener">${CIRCLED[n]}</a>`;
+}
+
+function competitorRow(continent: string, country: string, stores: string, refNum: number): string {
+  return `<tr><td class="continent">${continent}</td><td>${country}</td><td>${stores}${ref(refNum)}</td></tr>`;
+}
+
 function marketCard(region: string, country: string, tag: string): string {
   return `<div class="market-card">
       <div class="region">${region}</div>
@@ -319,6 +343,14 @@ function buildHtml(): string {
   .backup-links { margin-top: 8px; font-size: 12px; color: var(--muted); }
   .backup-links a { color: var(--muted); text-decoration: underline; }
 
+  .competitor-panel table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .competitor-panel th, .competitor-panel td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+  .competitor-panel th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); font-weight: 700; }
+  .competitor-panel td.continent { color: var(--muted); font-size: 12px; }
+  .ref { font-size: 7px; vertical-align: super; color: var(--accent); text-decoration: none; margin-left: 1px; }
+  .footnotes { margin-top: 12px; font-size: 7px; line-height: 1.9; color: var(--muted); word-break: break-all; }
+  .footnotes a { color: var(--muted); }
+
   footer {
     margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
     font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
@@ -457,6 +489,33 @@ function buildHtml(): string {
     ${marketCard("동남아 · 기존 거점", "싱가포르", "EDB 법인세 협상 사례 (17%→10%)")}
     ${marketCard("북미 · 최대 거점", "미국", "160개점 · 현재 성장 엔진")}
     ${marketCard("북미 · 참고 사례", "캐나다", "타 브랜드 북미 진출 전략 벤치마크")}
+  </div>
+
+  <div class="panel competitor-panel" style="margin-bottom: 32px;">
+    <div class="section-head">
+      <h2>경쟁 벤치마크 · 파리바게뜨 해외 진출 현황</h2>
+      <span class="note">공개 보도 기준 · 대륙별·국가별</span>
+    </div>
+    <table>
+      <thead><tr><th>대륙</th><th>국가</th><th>매장 현황</th></tr></thead>
+      <tbody>
+        ${competitorRow("동남아", "캄보디아", "4개 매장 (2021년 HSC그룹 JV 진출)", 5)}
+        ${competitorRow("동남아", "말레이시아", "17개 매장 · 할랄 인증 공장 가동", 4)}
+        ${competitorRow("동남아", "싱가포르", "11개+ 매장 (2012년 진출)", 3)}
+        ${competitorRow("동남아", "태국", "1호점 오픈 단계 (2025 신규 진출)", 9)}
+        ${competitorRow("동남아", "필리핀", "해외 11번째 진출국 · 마닐라 1호점+공항점", 10)}
+        ${competitorRow("동북아", "몽골", "1개 매장 (자이산스퀘어점, 연내 2개 추가 예정)", 6)}
+        ${competitorRow("중동", "사우디아라비아", "JV 계약 단계 (2033년까지 중동·아프리카 12개국 목표)", 7)}
+        ${competitorRow("중동", "카타르", "확인 안됨 (중동 JV 목표국 포함, 매장 정보 미확인)", 8)}
+        ${competitorRow("북미", "미국", "약 300개 매장 · 2030년까지 1,000개 목표", 1)}
+        ${competitorRow("북미", "캐나다", "10개 매장 · 2030년까지 100개 목표", 2)}
+      </tbody>
+    </table>
+    <div class="footnotes">
+      ${[1, 2, 3, 4, 5, 6, 7, 9, 10]
+        .map((n) => `${CIRCLED[n]} <a href="${REF_LINKS[n]}" target="_blank" rel="noopener">${REF_LINKS[n]}</a>`)
+        .join("<br/>")}<br/>⑧ 확인 안됨 — 공개 보도 검색 결과 없음
+    </div>
   </div>
 
   <div class="panel" style="margin-bottom: 32px;">
