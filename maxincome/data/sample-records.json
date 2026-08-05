@@ -22,19 +22,30 @@
     "sourceUrl": "https://drive.google.com/file/d/1jc3GLjE4d0ELbqJ2w0p5ayu-fBjpA_2z/view"
   },
   {
-    "id": "2",
-    "company": "LUME STUDIO",
-    "period": "2026.02.23 - 2026.05.31",
+    "id": "7",
+    "company": "DAL CO.",
+    "period": "2024.12.03 - 2024.12.31",
     "role": "근로소득 원천징수영수증 · 총급여(세전)",
-    "amount": 18900022,
-    "highlight": "약 3개월간 총급여 1,890만원 · 실효세율 0.5%",
+    "amount": 4325390,
+    "highlight": "2024년 12월 29일간 근로, 총급여 433만원 수령",
     "category": "income",
-    "year": "2026",
-    "sourceUrl": "https://drive.google.com/file/d/1_3FUythljkIDiXWWIMLDmwXKQbyODfFv/view"
+    "year": "2024",
+    "sourceUrl": "https://drive.google.com/file/d/1YiJ-kUOUbIXEb9xXceYcUCHUIqdHET91/view"
+  },
+  {
+    "id": "8",
+    "company": "DAL CO.",
+    "period": "2025.01.01 - 2025.12.31",
+    "role": "근로소득 원천징수영수증 · 총급여(세전)",
+    "amount": 55484304,
+    "highlight": "2025년 1년 근로, 총급여 5,548만원 수령",
+    "category": "income",
+    "year": "2025",
+    "sourceUrl": "https://drive.google.com/file/d/1bzwxXnBCBodCTdixhY2W-1Tk4uSEelEx/view"
   },
   {
     "id": "4",
-    "company": "NORTHFIELD CO.",
+    "company": "DAL CO.",
     "period": "2026.01.01 - 2026.02.13",
     "role": "근로소득 원천징수부 · 총급여(세전)",
     "amount": 11780382,
@@ -44,8 +55,30 @@
     "sourceUrl": "https://drive.google.com/file/d/1XTJg5JrntPyDzeulP-9jklf1dbm42NcS/view"
   },
   {
+    "id": "9",
+    "company": "GLOW STUDIO",
+    "period": "2026.02.23 - 2026.05.22",
+    "role": "연봉계약 체결",
+    "amount": 70000080,
+    "highlight": "연봉 7,000만원(세전) 계약 체결",
+    "category": "milestone",
+    "year": "2026",
+    "sourceUrl": "https://drive.google.com/file/d/1Am64nEPSoHsmJpCA9OHxnp4F_lmZp5t7/view"
+  },
+  {
+    "id": "2",
+    "company": "GLOW STUDIO",
+    "period": "2026.02.23 - 2026.05.31",
+    "role": "근로소득 원천징수영수증 · 총급여(세전)",
+    "amount": 18900022,
+    "highlight": "약 3개월간 총급여 1,890만원 · 실효세율 0.5%",
+    "category": "income",
+    "year": "2026",
+    "sourceUrl": "https://drive.google.com/file/d/1_3FUythljkIDiXWWIMLDmwXKQbyODfFv/view"
+  },
+  {
     "id": "1",
-    "company": "LUME STUDIO",
+    "company": "GLOW STUDIO",
     "period": "2026.02.20 - 2026.05.31",
     "role": "팀장 · 신사업개발팀 (대표이사 직속)",
     "amount": 0,
@@ -56,7 +89,7 @@
   },
   {
     "id": "3",
-    "company": "NORTHFIELD CO.",
+    "company": "DAL CO.",
     "period": "2024.12.03 - 2026.02.13",
     "role": "근속 약 1년 2개월",
     "amount": 0,
