@@ -1,4 +1,4 @@
-# Saki Global Engine (프로토타입)
+# Global Engine (퀴즈, 업무 능력 성장) 
 
 Max의 14년 글로벌 실무 데이터를 기반으로, 본부장급 영향력을 트레이닝하는
 비공개 시나리오 학습 사이트. `maxincome`과 달리 소득/급여 데이터는 전혀
@@ -38,7 +38,7 @@ npm run dev
 
 1. https://vercel.com 에서 "Add New… > Project" 클릭
 2. 이 GitHub 리포(`thenaham/msaki`)를 Import 하고, **Root Directory를
-   `saki-engine`으로 지정**
+   `saki`으로 지정**
 3. 프로젝트 이름을 `saki-engine`으로 설정 → 배포 후 `saki-engine.vercel.app`으로
    접속 확인
 4. 필요 시 Vercel 프로젝트 설정 > Environment Variables에서 `SITE_PASSWORD`
