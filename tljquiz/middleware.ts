@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const COOKIE_NAME = "se_auth";
+const COOKIE_NAME = "tq_auth";
 
 function getPassword(): string {
   return process.env.SITE_PASSWORD || "8687";

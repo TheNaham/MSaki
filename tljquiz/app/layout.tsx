@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Saki Global Engine",
+  title: "TLJquiz",
   description: "본부장급 글로벌 사업 의사결정 트레이닝",
   robots: { index: false, follow: false },
 };

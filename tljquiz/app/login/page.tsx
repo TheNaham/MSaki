@@ -46,10 +46,10 @@ function LoginForm() {
         className="w-full max-w-xs rounded border border-se-line bg-se-panel p-8 text-center"
       >
         <h1 className="font-serif text-xl font-semibold tracking-wide text-se-ink">
-          Saki Global Engine
+          TLJquiz
         </h1>
         <p className="mt-1 text-xs tracking-widest text-se-muted">
-          PRIVATE ACCESS
+          PRIVATE ACCESS · M
         </p>
         <input
           type="password"

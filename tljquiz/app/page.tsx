@@ -19,10 +19,10 @@ export default function Home() {
     <main className="mx-auto max-w-5xl px-6 py-16">
       <header>
         <span className="text-[11px] uppercase tracking-widest text-se-gold">
-          Private · Not for distribution
+          Private · Not for distribution · M
         </span>
         <h1 className="mt-2 font-serif text-3xl font-semibold text-se-ink">
-          Saki Global Engine
+          TLJquiz
         </h1>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-se-muted">
           글로벌 사업본부장급 의사결정 트레이닝. 실무 검토 이력을 기반으로 한

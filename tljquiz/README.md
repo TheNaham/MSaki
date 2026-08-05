@@ -1,6 +1,6 @@
-# Saki Global Engine (프로토타입)
+# TLJquiz (프로토타입)
 
-정성열의 14년 글로벌 실무 데이터를 기반으로, 본부장급 영향력을 트레이닝하는
+M의 14년 글로벌 실무 데이터를 기반으로, 본부장급 영향력을 트레이닝하는
 비공개 시나리오 학습 사이트. `maxincome`과 달리 소득/급여 데이터는 전혀
 다루지 않으며, 순수하게 의사결정 시뮬레이션·퀴즈 콘텐츠만 담습니다.
 
@@ -29,7 +29,7 @@ Display) 서체를 사용한 프로페셔널한 임원 브리핑 톤으로 구�
 ## 로컬 실행
 
 ```bash
-cd saki-engine
+cd tljquiz
 npm install
 npm run dev
 ```
@@ -37,9 +37,9 @@ npm run dev
 ## Vercel 배포
 
 1. https://vercel.com 에서 "Add New… > Project" 클릭
-2. 이 GitHub 리포(`thenaham/msaki`)를 Import 하고, **Root Directory를
-   `saki-engine`으로 지정**
-3. 프로젝트 이름을 `saki-engine`으로 설정 → 배포 후 `saki-engine.vercel.app`으로
+2. 이 GitHub 리포(`thenaham/tljquiz`)를 Import 하고, **Root Directory를
+   `tljquiz`으로 지정**
+3. 프로젝트 이름을 `tljquiz`으로 설정 → 배포 후 `tljquiz.vercel.app`으로
    접속 확인
 4. 필요 시 Vercel 프로젝트 설정 > Environment Variables에서 `SITE_PASSWORD`
    재설정 후 재배포
