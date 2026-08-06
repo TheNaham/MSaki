@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "date": "2026.08.06",
+    "count": 0,
+    "category": "milestone",
+    "highlight": "글로벌 인맥 10,000명 프로젝트 킥오프 — 목표: 링크드인 연결 10,000명"
+  },
+  {
+    "id": "2",
+    "date": "2026.08.06",
+    "count": 40,
+    "category": "outreach",
+    "highlight": "타겟 업종(글로벌 세일즈·파트너십) 40명에게 첫 연결 요청 발송"
+  },
+  {
+    "id": "3",
+    "date": "2026.08.06",
+    "count": 12,
+    "category": "connect",
+    "highlight": "당일 12명 수락 — 첫날 전환율 30%"
+  },
+  {
+    "id": "4",
+    "date": "2026.08.07",
+    "count": 50,
+    "category": "outreach",
+    "highlight": "APAC 지역 담당자 위주로 50명 추가 발송"
+  },
+  {
+    "id": "5",
+    "date": "2026.08.07",
+    "count": 18,
+    "category": "connect",
+    "highlight": "누적 30명 연결 — 개인화 메시지 템플릿 A/B 테스트 시작"
+  },
+  {
+    "id": "6",
+    "date": "2026.08.08",
+    "count": 0,
+    "category": "content",
+    "highlight": "링크드인 첫 포스팅 게시 — 인바운드 연결 요청 유입 확인"
+  },
+  {
+    "id": "7",
+    "date": "2026.08.08",
+    "count": 21,
+    "category": "connect",
+    "highlight": "포스팅 이후 인바운드 포함 21명 연결 — 누적 51명"
+  }
+]
