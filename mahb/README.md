@@ -4,8 +4,15 @@
 
 ## 현재 상태 (프로토타입)
 
-- `GOOGLE_*` 환경변수가 없으면 `data/sample-photos.json`(샘플 10장)을 사용합니다.
-- 환경변수를 채우면 코드 변경 없이 실제 Google Sheets 데이터로 자동 전환됩니다.
+데이터 소스는 우선순위대로 자동 선택됩니다:
+
+1. **Google Sheets** — `GOOGLE_SHEET_ID`가 설정되어 있으면 최우선 사용
+2. **Google Drive 폴더 실시간 스캔** — Sheets가 없고 `GOOGLE_DRIVE_FOLDER_ID`가 설정되어 있으면, 폴더 안 이미지 파일명을 파싱해 자동으로 카드 생성 (Sheets 없이도 **Drive에 사진만 올리면 바로 반영**됩니다)
+3. **로컬 샘플 데이터** — 위 둘 다 없으면 `data/sample-photos.json` 사용
+
+### Drive 파일명 규칙 (실시간 스캔용)
+
+`{색상} {점수(선택)} {제목}` 형식을 인식합니다. 예: `보라 92 경기도농식품진흥원장상 수상`. 점수를 안 쓰면 색상 단계별 기본 점수가 자동으로 들어갑니다. 파일명에 `2026년 3월` 또는 `2026.03` 형식이 있으면 그 날짜를, 없으면 Drive 파일의 수정일을 연도로 사용합니다.
 
 ## 1. Google Sheets 연결
 
@@ -17,6 +24,13 @@
 4. `.env.example`을 참고해 `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `GOOGLE_SHEET_ID`를 Vercel 환경변수에 등록합니다.
 
 이미지(`imageUrl`)는 Google Drive 파일 ID를 `lib/drive.ts`의 `driveImageUrl()`로 변환해 넣으면 됩니다 (Drive 파일은 "링크가 있는 모든 사용자"로 공유 필요).
+
+## 1-1. Google Drive 폴더 실시간 스캔 (Sheets 없이 쓰는 경우)
+
+1. `.env.example`의 `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`를 Vercel 환경변수에 등록 (Sheets 안 쓰더라도 서비스 계정은 필요)
+2. `GOOGLE_DRIVE_FOLDER_ID`에 사진이 들어있는 Drive 폴더 ID 등록 (기본값: `mahb` 폴더 `1-AwVQpXFYo_JqKWFvVmIwR1_0BE7hCCj`)
+3. 그 폴더가 "링크가 있는 모든 사용자 · 뷰어"로 공유되어 있는지 확인
+4. 이후로는 그 폴더에 사진만 올리면, 재배포 없이도 새로고침 시 바로 반영됩니다
 
 ## 2. Telegram 알림 연결
 
