@@ -1,4 +1,5 @@
 import decisionLog from "@/data/decision-log.json";
+import intelLog from "@/data/intel-log.json";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +11,17 @@ interface DecisionEntry {
   feedback: string;
 }
 
+interface IntelEntry {
+  date: string;
+  time?: string;
+  routine: string;
+  label: string;
+  summary: string;
+  sourceUrl?: string;
+}
+
 const log = decisionLog as DecisionEntry[];
+const intelLogEntries = intelLog as IntelEntry[];
 
 const LAUNCH_DATE = new Date("2026-08-04T00:00:00+09:00");
 
@@ -63,6 +74,24 @@ function ref(n: number): string {
 
 function competitorRow(continent: string, country: string, stores: string, refNum: number): string {
   return `<tr><td class="continent">${continent}</td><td>${country}</td><td>${stores}${ref(refNum)}</td></tr>`;
+}
+
+function renderIntelLog(): string {
+  if (intelLogEntries.length === 0) {
+    return `<p class="pipeline-caption">아직 기록된 인텔 로그가 없습니다. 매일 아침 7시·저녁 9시, 토요일 주간 리포트 루틴이 여기 누적됩니다.</p>`;
+  }
+  return `<ul class="risk-rules">${intelLogEntries
+    .slice()
+    .reverse()
+    .map((e) => {
+      const src = e.sourceUrl
+        ? ` <a href="${e.sourceUrl}" target="_blank" rel="noopener" style="font-size:11px;color:var(--muted)">출처</a>`
+        : "";
+      return `<li><span class="stripe" style="background:var(--accent)"></span><strong>${e.date}${
+        e.time ? " " + e.time : ""
+      } · ${e.label}</strong> — ${e.summary}${src}</li>`;
+    })
+    .join("")}</ul>`;
 }
 
 function marketCard(region: string, country: string, tag: string): string {
@@ -524,6 +553,14 @@ function buildHtml(): string {
       <span class="note">TLJquiz 매일 트레이닝 누적</span>
     </div>
     ${decisionLogHtml}
+  </div>
+
+  <div class="panel" style="margin-bottom: 32px;">
+    <div class="section-head">
+      <h2>글로벌 인텔 로그</h2>
+      <span class="note">아침 7시·저녁 9시 일일 + 토요일 주간 리포트 4종 누적</span>
+    </div>
+    ${renderIntelLog()}
   </div>
 
   <footer>
