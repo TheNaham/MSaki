@@ -16,10 +16,13 @@ const GRADE_LABEL: Record<ChoiceGrade, string> = {
   risky: "위험한 판단",
 };
 
+type SaveStatus = "idle" | "saving" | "saved" | "error";
+
 export default function ScenarioPlayer({ scenario }: { scenario: Scenario }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [picked, setPicked] = useState<Choice | null>(null);
   const [history, setHistory] = useState<ChoiceGrade[]>([]);
+  const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
 
   const step = scenario.steps[stepIndex];
   const isLastStep = stepIndex === scenario.steps.length - 1;
@@ -27,6 +30,21 @@ export default function ScenarioPlayer({ scenario }: { scenario: Scenario }) {
 
   function pick(choice: Choice) {
     setPicked(choice);
+    if (isLastStep && saveStatus === "idle") {
+      setSaveStatus("saving");
+      fetch("/api/complete-scenario", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          scenarioTitle: scenario.title,
+          choiceText: choice.text,
+          grade: choice.grade,
+          feedback: choice.feedback,
+        }),
+      })
+        .then((res) => (res.ok ? setSaveStatus("saved") : setSaveStatus("error")))
+        .catch(() => setSaveStatus("error"));
+    }
   }
 
   function next() {
@@ -69,6 +87,12 @@ export default function ScenarioPlayer({ scenario }: { scenario: Scenario }) {
             {scenario.takeaway}
           </p>
         </div>
+        <p className="mt-4 text-xs text-se-muted">
+          {saveStatus === "saving" && "대시보드에 기록 저장 중..."}
+          {saveStatus === "saved" && "✓ 대시보드 '의사결정 이력'에 저장됨"}
+          {saveStatus === "error" &&
+            "⚠ 자동 저장 실패 — 잠시 후 새로고침해서 다시 시도해 주세요"}
+        </p>
         <Link
           href="/"
           className="mt-8 inline-block rounded bg-se-gold px-5 py-2.5 text-sm font-medium tracking-wide text-se-charcoal transition hover:brightness-110"

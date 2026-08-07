@@ -43,6 +43,11 @@ npm run dev
    접속 확인
 4. 필요 시 Vercel 프로젝트 설정 > Environment Variables에서 `SITE_PASSWORD`
    재설정 후 재배포
+5. 시나리오를 마지막 단계까지 클릭해서 완료하면 자동으로 `decision-log.json`에
+   기록되고 `/dashboard`에 반영됩니다. 이를 위해 Vercel 환경변수에
+   `GITHUB_TOKEN`(이 저장소에 대한 `contents:write` 권한을 가진 GitHub PAT)을
+   설정해야 합니다. 미설정 시 시나리오 진행은 정상 동작하지만 결과 화면에
+   "자동 저장 실패" 안내가 뜨고 기록은 저장되지 않습니다.
 
 ## 확장 아이디어 (다음 단계)
 
